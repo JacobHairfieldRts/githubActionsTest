@@ -13,18 +13,17 @@ jobs:
         id: square
         uses: JacobHairfieldRts/actionServices/myTestAction@main  
         with:
-          number: 12
+          number: 12  # This is the test input number
 
       - name: Verify Output
-        env: 
-          NUMBER: 12
+        env:
+          NUMBER: 12  # Passes number as an environment variable
         run: |
-          number="${{ inputs.number }}"  # Match the input value dynamically (or fetch if possible)
-          expected=$((number * number))  # Calculate expected output dynamically
-          actual="${{ steps.square.outputs.result }}"
-          
+          expected=$((NUMBER * NUMBER))  # Calculate expected dynamically
+          actual="${{ steps.square.outputs.result }}"  # Fetch actual output
+
           if [ "$expected" == "$actual" ]; then
-            echo "✅ Test Passed: $number squared is $actual"
+            echo "✅ Test Passed: $NUMBER squared is $actual"
           else
             echo "❌ Test Failed: Expected $expected, but got $actual"
             exit 1
