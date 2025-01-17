@@ -16,15 +16,14 @@ jobs:
           number: 12
 
       - name: Verify Output
-  run: |
-    number="${{ inputs.number }}"  # Fetch input number dynamically
-    expected=$((number * number))  # Calculate expected value dynamically
-    actual="${{ steps.square.outputs.result }}"
-
-    if [ "$expected" == "$actual" ]; then
-      echo "✅ Test Passed: $number squared is $actual"
-    else
-      echo "❌ Test Failed: Expected $expected, but got $actual"
-      exit 1
-    fi
-
+        run: |
+          number="${{ inputs.number }}"  # Match the input value dynamically (or fetch if possible)
+          expected=$((number * number))  # Calculate expected output dynamically
+          actual="${{ steps.square.outputs.result }}"
+          
+          if [ "$expected" == "$actual" ]; then
+            echo "✅ Test Passed: $number squared is $actual"
+          else
+            echo "❌ Test Failed: Expected $expected, but got $actual"
+            exit 1
+          fi
