@@ -20,7 +20,7 @@ jobs:
           expected=9
           actual="${{ steps.square.outputs.result }}"
           if [ "$expected" == "$actual" ]; then
-            echo "✅ Test Passed: 3} squared is $actual"
+            echo "✅ Test Passed: $number squared is $actual"
           else
             echo "❌ Test Failed: Expected $expected, but got $actual"
             exit 1
