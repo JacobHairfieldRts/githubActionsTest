@@ -13,7 +13,7 @@ jobs:
         id: square
         uses: JacobHairfieldRts/actionServices/myTestAction@main  
         with:
-          number: 3  
+          number: 12
 
       - name: Verify Output
         run: |
