@@ -17,7 +17,7 @@ jobs:
 
       - name: Verify Output
         run: |
-          expected= 9
+          expected=9
           actual="${{ steps.square.outputs.result }}"
           if [ "$expected" == "$actual" ]; then
             echo "✅ Test Passed: 4 squared is $actual"
