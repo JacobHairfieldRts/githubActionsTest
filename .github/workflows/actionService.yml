@@ -11,7 +11,7 @@ jobs:
 
       - name: Run Custom Action (Square a Number)
         id: square
-        uses: JacobHairfieldRts/RepoA/myTestAction@main  # Replace with your Repo A
+        uses: JacobHairfieldRts/actionServices/myTestAction@main  # Replace with your Repo A
         with:
           number: 4
 
