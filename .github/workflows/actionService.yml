@@ -1,0 +1,27 @@
+name: "Test Custom Action"
+
+on: [push]
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Custom Action (Square a Number)
+        id: square
+        uses: JacobHairfieldRts/actionServices/myTestAction@main  # Replace with your Repo A
+        with:
+          number: 3
+
+      - name: Verify Output
+        run: |
+          expected=9
+          actual="${{ steps.square.outputs.result }}"
+          if [ "$expected" == "$actual" ]; then
+            echo "✅ Test Passed: 4 squared is $actual"
+          else
+            echo "❌ Test Failed: Expected $expected, but got $actual"
+            exit 1
+          fi
