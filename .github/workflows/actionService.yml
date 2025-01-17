@@ -16,6 +16,8 @@ jobs:
           number: 12
 
       - name: Verify Output
+        env: 
+          NUMBER: 12
         run: |
           number="${{ inputs.number }}"  # Match the input value dynamically (or fetch if possible)
           expected=$((number * number))  # Calculate expected output dynamically
