@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: JacobHairfieldRts/githubActionsTest@v1.1
+        uses: JacobHairfieldRts/githubActionsTest/workflows/hello.yml@main
         with:
           who-to-greet: 'Hi Jacob'
       # Use the output from the `hello` step

@@ -13,11 +13,11 @@ jobs:
         id: square
         uses: JacobHairfieldRts/actionServices/myTestAction@main  # Replace with your Repo A
         with:
-          number: 4
+          number: 3
 
       - name: Verify Output
         run: |
-          expected=16
+          expected= 9
           actual="${{ steps.square.outputs.result }}"
           if [ "$expected" == "$actual" ]; then
             echo "✅ Test Passed: 4 squared is $actual"
